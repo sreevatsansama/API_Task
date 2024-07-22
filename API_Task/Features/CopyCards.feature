@@ -1,12 +1,8 @@
-﻿Feature: Copy Cards Between Boards
-  As a Trello user
-  I want to copy cards from one board to another
-  So that I don’t have to duplicate effort
+﻿Feature: Copy Cards
 
-  Scenario: Copy a card from Board A to Board B
-    Given I have a Trello account 1
-    And I have a board named "Board A" with a card named "Card 1" 1
-    And I have a board named "Board B"
-    When I copy the card "Card 1" from "Board A" to "Board B"
-    Then "Card 1" should exist on "Board B"
-    And "Card 1" should still exist on "Board A"
+  Scenario: Copy a card from one board to another
+    Given I have a source board with id "sourceBoardId"
+    And I have a destination board with id "destinationBoardId"
+    And I have a card with id "cardId" on the source board
+    When I copy the card to the destination board
+    Then the card should exist on the destination board

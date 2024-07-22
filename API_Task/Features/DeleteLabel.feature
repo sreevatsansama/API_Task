@@ -1,11 +1,7 @@
-Feature: Delete a Label on a Card
-  As a Trello user
-  I want to delete a label on a card
-  So that they can be re-categorised
+Feature: Delete Label
 
-  Scenario: Remove a label from a card
-    Given I have a Trello account 2
-    And I have a board named "Board A" with a card named "Card 1" 2
-    And "Card 1" has a label named "Urgent"
-    When I delete the label "Urgent" from "Card 1"
-    Then "Card 1" should no longer have the label "Urgent"
+  Scenario: Delete a label on a card
+    Given I have a board with id "boardId" and a card with id "cardId"
+    And the card has a label with id "labelId"
+    When I delete the label from the card
+    Then the label should no longer exist on the card
